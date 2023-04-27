@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile";
 import Profile from "./components/Profile";
+import LoadingPage from "./components/LoadingPage";
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
-              <Route path="/" element={<Profile />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/" element={<LoadingPage />} />
             </Routes>
           </Router>
         </AuthProvider>
