@@ -9,16 +9,14 @@ const Profile = () => {
   const [error, setError] = useState("");
   console.log({ currentUser });
 
-  const handleLogout = () => {
-    navigate("/login");
-
-    // setError("");
-    // try {
-    //   // await logout();
-    //   navigate("/login");
-    // } catch {
-    //   setError("Logout failed!");
-    // }
+  const handleLogout = async () => {
+    setError("");
+    try {
+      await logout();
+      navigate("/login");
+    } catch {
+      setError("Logout failed!");
+    }
   };
   return (
     <>
@@ -26,9 +24,6 @@ const Profile = () => {
         <Card.Body>
           <h2 className="text-center">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          {/* <p>
-          <strong>Welcome {currentUser?.email}</strong>
-        </p> */}
           <p>Email: {currentUser?.email}</p>
           <Link to="/update-profile">Update profile</Link>
         </Card.Body>
